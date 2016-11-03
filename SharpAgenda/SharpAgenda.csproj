@@ -34,6 +34,7 @@
     <Folder Include="Contactos\" />
     <Folder Include="Grafico\" />
     <Folder Include="Meetings\" />
+    <Folder Include="Calendario\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contactos\Agenda.cs" />
@@ -43,6 +44,9 @@
     <Compile Include="Meetings\Cita.cs" />
     <Compile Include="Meetings\Controler_Meetings.cs" />
     <Compile Include="Meetings\Meets.cs" />
+    <Compile Include="Calendario\CalendarioCitas.cs" />
+    <Compile Include="Calendario\Cita.cs" />
+    <Compile Include="Calendario\CrearCita.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
