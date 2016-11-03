@@ -1,0 +1,5 @@
+/home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/cya/gitclones/SharpAgenda/SharpAgenda/bin/Debug/SharpAgenda.exe.mdb
+/home/cya/gitclones/SharpAgenda/SharpAgenda/bin/Debug/SharpAgenda.exe
+/home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe
+/home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe.mdb
