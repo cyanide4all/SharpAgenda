@@ -51,7 +51,7 @@ namespace Contactos
 		}
 
 		public Contacto GetContactoByNombreCompleto(String nom, String ap){
-			return contactos.Find (x => x.Nombre == nom && x.Apellidos == nom);
+			return contactos.Find (x => x.Nombre == nom && x.Apellidos == ap);
 		}
 
 		public void ModificarContacto(int i, String nom,String ap,String d,String e,String t){
