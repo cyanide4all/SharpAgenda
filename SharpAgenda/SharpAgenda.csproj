@@ -47,6 +47,7 @@
     <Compile Include="Calendario\CalendarioCitas.cs" />
     <Compile Include="Calendario\Cita.cs" />
     <Compile Include="Calendario\CrearCita.cs" />
+    <Compile Include="Notas\Nota.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
