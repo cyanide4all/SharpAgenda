@@ -46,13 +46,8 @@
     <Compile Include="Meetings\Controler_Meetings.cs" />
     <Compile Include="Meetings\Meets.cs" />
     <Compile Include="Calendario\CalendarioCitas.cs" />
-<<<<<<< HEAD
     <Compile Include="UI\VentanaPrincipal.cs" />
-=======
-    <Compile Include="Calendario\Cita.cs" />
-    <Compile Include="Calendario\CrearCita.cs" />
     <Compile Include="Notas\Nota.cs" />
->>>>>>> d0ecd838963eccd906b6579dde8b788bae3c2048
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
