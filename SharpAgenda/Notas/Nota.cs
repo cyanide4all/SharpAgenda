@@ -49,7 +49,7 @@ namespace Notas
 			wr.WriteEndDocument();
 		}
 
-		public string ToString() {
+		public override string ToString() {
 			return contenido;
 		}
 	}
