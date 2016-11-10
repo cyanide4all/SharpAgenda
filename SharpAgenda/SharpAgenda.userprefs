@@ -1,13 +1,13 @@
-﻿<Properties StartupConfiguration="{87D876D0-9E36-48E1-9338-0574BAC11FAC}|Default">
+﻿<Properties StartupConfiguration="{87D876D0-9E36-48E1-9338-0574BAC11FAC}|Default" StartupItem="SharpAgenda.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.SharpAgenda PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Main.cs">
     <Files>
       <File FileName="Main.cs" Line="19" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.SharpAgenda PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>
