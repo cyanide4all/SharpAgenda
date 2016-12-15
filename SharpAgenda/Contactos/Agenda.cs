@@ -31,6 +31,10 @@ namespace Contactos
 			return toret;
 		}
 
+		public bool IsEmpty(){
+			return contactos.Count == 0;
+		}
+
 		public void OverrideContactos(List<Contacto> c){
 			contactos = c;
 		}
@@ -42,8 +46,12 @@ namespace Contactos
 			contactos.Add (new Contacto (n, a, d, e, t));
 		}
 			
-		public void DelContacto(Contacto c){
-			contactos.Remove (c);
+		public Boolean DelContacto(Contacto c){
+			return contactos.Remove (c); //Puesto como return for debugging purposes
+		}
+
+		public Contacto GetPosicion(Contacto c){
+			return contactos.IndexOf (c);
 		}
 
 		public Contacto GetContactoByIndex(int i){
@@ -51,7 +59,11 @@ namespace Contactos
 		}
 
 		public Contacto GetContactoByNombreCompleto(String nom, String ap){
-			return contactos.Find (x => x.Nombre == nom && x.Apellidos == nom);
+			return contactos.Find (x => x.Nombre == nom && x.Apellidos == ap);
+		}
+
+		public Contacto GetContactoByEmail(String email){
+			return contactos.Find (x => x.Email == email);
 		}
 
 		public void ModificarContacto(int i, String nom,String ap,String d,String e,String t){

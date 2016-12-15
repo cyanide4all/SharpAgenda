@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using SharpAgenda;
 
 namespace Grafico
 {
@@ -18,7 +19,7 @@ namespace Grafico
 
 
 			Application.Init ();
-			new VentanaGrafico ();
+			new VentanaPrincipal ();
 			Application.Run ();
 		}
 
