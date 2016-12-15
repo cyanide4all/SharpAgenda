@@ -80,7 +80,6 @@ namespace SharpAgenda
 			Main.Add (textBox);
 
 			Add (Main);
-
 			ShowAll();
 
 		}
