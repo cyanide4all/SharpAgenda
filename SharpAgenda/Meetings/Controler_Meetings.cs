@@ -43,7 +43,7 @@ namespace Meetings
 			listaCitas.GenerateXml ();
 		}
 
-		public string toString()
+		public override string ToString()
 		{
 			return listaCitas.ToString ();
 		}
