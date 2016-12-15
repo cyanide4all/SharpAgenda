@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using Grafico;
 
 namespace SharpAgenda
 {
@@ -22,8 +23,11 @@ namespace SharpAgenda
 			Menu contactosOpciones = new Menu ();
 			MenuItem contactosMenu = new MenuItem ("Contactos");
 			MenuItem contactosListar = new MenuItem ("Listar contactos");
+			contactosListar.Activated += ListarContactos;
 			MenuItem contactosCrear = new MenuItem ("Crear Contacto");
+			contactosCrear.Activated += CrearContacto;
 			MenuItem contactosBorrar = new MenuItem ("Borrar contactos");
+			contactosBorrar.Activated += BorrarContacto;
 			MenuItem contactosModificar = new MenuItem ("Modificar contactos");
 
 			Menu citasOpciones = new Menu ();
@@ -77,8 +81,15 @@ namespace SharpAgenda
 
 			ShowAll();
 
-
-
+		}
+		void ListarContactos(object sender, EventArgs args){
+			new VentanaContactosListar ();
+		}
+		void CrearContacto(object sender, EventArgs args){
+			new VentanaContactosCrear();
+		}
+		void BorrarContacto(object sender, EventArgs args){
+			new VentanaContactosBorrar();
 		}
 	}
 }

@@ -27,7 +27,7 @@ namespace Grafico
 				Dias [i].Add (new Label (Days[i]));
 				DayContainer.Add (Dias [i]);
 			}
-			CalendarioCitas cc = new CalendarioCitas ();
+			//CalendarioCitas cc = new CalendarioCitas ();
 
 			//Rellena los dias con datos
 			for (int i = 0; i < 7; i++) {
