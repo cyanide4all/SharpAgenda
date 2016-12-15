@@ -15,8 +15,7 @@ namespace Meetings
 		public Meets (string xml)	//Direccion del archivo XML de Citas
 		{
 			nombreXmlDoc = xml;
-			todasLasCitas= new List<Cita>();
-			//RecuperaXml (xml);				
+			todasLasCitas = RecuperaXml (xml);				
 		}
 			
 		public List<Cita> RecuperaXml(string f)
@@ -37,7 +36,7 @@ namespace Meetings
 					foreach(XmlNode nodo in docXml.DocumentElement.ChildNodes) {
 						if ( nodo.Name == "cita" ){
 							foreach(XmlNode subNodo in nodo.ChildNodes) {
-								if ( subNodo.Name == "nombre" ) {
+								if ( subNodo.Name == "nombreCita" ) {
 									nombre = subNodo.InnerText.Trim(); //Trim quita los espacios en blanco
 								}
 								if ( subNodo.Name == "nombreContacto" ) {
@@ -62,9 +61,10 @@ namespace Meetings
 					}
 				}
 			}
-			catch(XmlException)
+			catch(Exception)
 			{
 				toret.Clear();
+				Console.WriteLine ("Exception" );
 			}
 
 			return toret;
@@ -102,44 +102,54 @@ namespace Meetings
 		public void GenerateXml ()
 		{
 			int j = 0; //Contador Actual
+
+			XmlTextWriter textWriter = new XmlTextWriter( nombreXmlDoc, Encoding.UTF8 );
+
+			textWriter.WriteStartDocument();
+			textWriter.WriteStartElement("Citas");
+
 			foreach (var i in todasLasCitas) 
 			{
-				XmlTextWriter textWriter = new XmlTextWriter( nombreXmlDoc, Encoding.UTF8 );
-
-				textWriter.WriteStartDocument();
-
-				textWriter.WriteStartElement( "cita#" + j );
-				textWriter.WriteStartElement( "nombre" );
-				textWriter.WriteString( todasLasCitas.ElementAt(j).Nombre );
+				textWriter.WriteStartElement ("cita");
+				textWriter.WriteStartElement ("nombreCita");
+				textWriter.WriteString (todasLasCitas.ElementAt (j).Nombre);
+				textWriter.WriteEndElement ();
+				textWriter.WriteStartElement ("nombreContacto");
+				textWriter.WriteString (todasLasCitas.ElementAt (j).NombreContacto);
+				textWriter.WriteEndElement ();
+				textWriter.WriteStartElement ("fecha");
+				textWriter.WriteString (todasLasCitas.ElementAt (j).Fecha);
+				textWriter.WriteEndElement ();
+				textWriter.WriteStartElement ("hora");
+				textWriter.WriteString (todasLasCitas.ElementAt (j).Hora);
+				textWriter.WriteEndElement ();
+				textWriter.WriteStartElement ("descripcion");
+				textWriter.WriteString (todasLasCitas.ElementAt (j).Descripcion);
+				textWriter.WriteEndElement ();
 				textWriter.WriteEndElement();
-				textWriter.WriteStartElement( "nombre_contacto" );
-				textWriter.WriteString( todasLasCitas.ElementAt(j).NombreContacto );
-				textWriter.WriteEndElement();
-				textWriter.WriteStartElement( "fecha" );
-				textWriter.WriteString( todasLasCitas.ElementAt(j).Fecha );
-				textWriter.WriteEndElement();
-				textWriter.WriteStartElement( "hora" );
-				textWriter.WriteString( todasLasCitas.ElementAt(j).Hora );
-				textWriter.WriteEndElement();
-				textWriter.WriteStartElement( "descripcion" );
-				textWriter.WriteString( todasLasCitas.ElementAt(j).Descripcion );
-				textWriter.WriteEndElement();
-				textWriter.WriteEndElement();
-
-				textWriter.WriteEndDocument();
-				textWriter.Close();
 
 				j++;
 			}
+				
+			textWriter.WriteEndElement(); //Cerrar Citas
+			textWriter.WriteEndDocument();
+			textWriter.Close();
+
 		}
 
 		public override string ToString ()
 		{
 			StringBuilder toret = new StringBuilder();
 			int j = 0;
-			foreach (var i in todasLasCitas) 
-			{
-				toret.Append (i.ToString(++j) + " ; ");
+
+			//System.Console.WriteLine (todasLasCitas.Count);
+
+			if (todasLasCitas.Count == 0) {
+				toret.Append("");
+			} else {
+					foreach (var i in todasLasCitas) {
+					toret.Append (i.ToString (++j) + " ; \n\n");
+				}
 			}
 			return toret.ToString();
 		}
