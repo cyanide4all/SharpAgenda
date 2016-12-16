@@ -27,13 +27,14 @@ namespace SharpAgenda
 			comboBox = new ComboBox(Agenda.Get ().ToStringCB ());
 			comboBox.Changed += cambiarContacto;
 
+			Button botonModificar = new Button ("Modificar");
+			botonModificar.Clicked += modificarContacto;
+
 			Nombre = new Entry ();
 			Apellidos = new Entry ();
 			Direccion = new Entry ();
 			Telefono = new Entry ();
 			Email = new Entry ();
-
-
 
 			Main.Add (comboBox);
 			Main.Add(new Label("Nombre"));
@@ -46,10 +47,10 @@ namespace SharpAgenda
 			Main.Add (Telefono);
 			Main.Add(new Label("Email"));
 			Main.Add (Email);
+			Main.Add (botonModificar);
 
 			this.Add (Main);
 			this.ShowAll ();
-
 		}
 
 		void cambiarContacto(object sender, EventArgs args){
@@ -73,6 +74,7 @@ namespace SharpAgenda
 			agenda.ModificarContacto (pos, Nombre.Text, Apellidos.Text, Direccion.Text, Email.Text, Telefono.Text);
 			agenda.SaveXML ();
 			alertaOperacionExitosa ();
+			this.Destroy ();
 		}
 
 		//ALERTAS
