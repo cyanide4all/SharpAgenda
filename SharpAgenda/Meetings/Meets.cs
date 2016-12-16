@@ -75,10 +75,14 @@ namespace Meetings
 			todasLasCitas.Add (cita);	//Añado la cita a todas las anteriores
 		}
 
-		public void RemoveMeet (string nom)
+		public Boolean RemoveMeet (string nom)
 		{
 			Cita cita = this.GetByName (nom);
-			todasLasCitas.Remove (cita);	//Añado la cita a todas las anteriores
+
+			if (todasLasCitas.Remove (cita))
+				return true;
+			else
+				return false;
 		}
 
 		public void ModifyMeet (string nom, Cita cita) //Le pasas el nombre de la cita a modificar y la cita nueva
@@ -87,6 +91,18 @@ namespace Meetings
 			int position = todasLasCitas.IndexOf (aux);
 			todasLasCitas.Remove (aux);
 			todasLasCitas.Insert (position, cita);	//Vuelve a insertarla en la misma posicion
+		}
+
+		public String[] GetAll()
+		{
+			String[] toret = new string[todasLasCitas.Count];
+			int j = 0;
+
+			foreach (var i in todasLasCitas)
+			{
+				toret [j++] = i.Nombre;
+			}
+			return toret;
 		}
 
 		public Cita GetByName(string nom)
@@ -148,7 +164,7 @@ namespace Meetings
 				toret.Append("");
 			} else {
 					foreach (var i in todasLasCitas) {
-					toret.Append (i.ToString (++j) + " ; \n\n");
+					toret.Append (i.ToString (++j) + " \n\n");
 				}
 			}
 			return toret.ToString();

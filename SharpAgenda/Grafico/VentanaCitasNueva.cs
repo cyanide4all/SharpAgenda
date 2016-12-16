@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using Contactos;
 using Meetings;
 
 namespace SharpAgenda
@@ -8,9 +9,12 @@ namespace SharpAgenda
 	{
 		private String fechaAguardar;
 		private Controler_Meetings citas;
+		private String[] nombreContactos;
+		private String contactoAGuardar;
 
 		Entry NombreCita;
-		Entry NombreContacto;
+		//Entry NombreContacto;
+		ComboBox cb;
 		//Entry Fecha =; //Utilizo un calendario en vez de una entrada
 		Entry Hora;
 		Entry Descripcion;
@@ -19,6 +23,8 @@ namespace SharpAgenda
 		public VentanaCitasNueva (): base( "Nueva Cita" )
 		{
 			citas = new Controler_Meetings ();
+			nombreContactos = Agenda.Get ().ToStringCB ();
+			contactoAGuardar = "";
 			fechaAguardar = "";
 			this.Build ();
 		}
@@ -36,7 +42,10 @@ namespace SharpAgenda
 			HBox H5 = new HBox ();
 
 			NombreCita = new Entry ();
-			NombreContacto = new Entry ();
+			//NombreContacto = new Entry ();
+			cb = new ComboBox(nombreContactos); //Selleccionar Contacto.
+			cb.Changed += OnChanged;
+
 			//Entry Fecha = new Entry ();
 			Hora = new Entry ();
 			Descripcion = new Entry ();
@@ -58,7 +67,7 @@ namespace SharpAgenda
 			H1.Add(LnombreCita);
 			H1.Add(NombreCita);
 			H2.Add(LNombreContacto);
-			H2.Add(NombreContacto);
+			H2.Add(cb);
 			H3.Add(LFecha);
 			H3.Add(calendar);
 			H4.Add(LHora);
@@ -88,9 +97,15 @@ namespace SharpAgenda
 			fechaAguardar = cal.Day + "/" + (cal.Month + 1) + "/" + cal.Year; //Fecha en String
 		}
 
+		void OnChanged(object sender, EventArgs args)
+		{
+			ComboBox cb = (ComboBox) sender;
+			contactoAGuardar = cb.ActiveText;	//Este es la cita seleccionada
+		}
+
 		public void Guardar (object sender, EventArgs args)
 		{
-			if ((NombreCita.Text == "") || (NombreContacto.Text == "") || fechaAguardar == "") 
+			if ((NombreCita.Text == "") || (contactoAGuardar == "") || fechaAguardar == "") 
 			{
 				MessageDialog md = new MessageDialog(this, 
 					DialogFlags.DestroyWithParent, MessageType.Warning, 
@@ -100,7 +115,7 @@ namespace SharpAgenda
 			}
 			else
 			{
-				citas.ToAddNewMeet( NombreCita.Text, NombreContacto.Text, fechaAguardar, Hora.Text, Descripcion.Text);
+				citas.ToAddNewMeet( NombreCita.Text, contactoAGuardar, fechaAguardar, Hora.Text, Descripcion.Text);
 				citas.ToGenerateXml ();
 				this.Destroy();
 			}
