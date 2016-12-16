@@ -28,10 +28,15 @@ namespace SharpAgenda
 
 			//Si tal, ya si eso, gravedad izquierda en las labels porque estan al medio
 			Label labelNombreContacto = new Label ("Nombre");
+			labelNombreContacto.SetAlignment (0, 1);
 			Label labelApellidosContacto = new Label ("Apellidos");
+			labelApellidosContacto.SetAlignment (0, 1);
 			Label labelDireccionContacto = new Label ("Dirección");
+			labelDireccionContacto.SetAlignment (0, 1);
 			Label labelTelefonoContacto = new Label ("Teléfono");
-			Label LabelEmailContacto = new Label ("Email");
+			labelTelefonoContacto.SetAlignment (0, 1);
+			Label labelEmailContacto = new Label ("Email");
+			labelEmailContacto.SetAlignment (0, 1);
 
 			Button guardar = new Button ("Guardar");
 			guardar.Clicked += crearContacto;
@@ -44,7 +49,7 @@ namespace SharpAgenda
 			Main.Add (direccionContacto);
 			Main.Add (labelTelefonoContacto);
 			Main.Add (telefonoContacto);
-			Main.Add (LabelEmailContacto);
+			Main.Add (labelEmailContacto);
 			Main.Add (emailContacto);
 			Main.Add (guardar);
 

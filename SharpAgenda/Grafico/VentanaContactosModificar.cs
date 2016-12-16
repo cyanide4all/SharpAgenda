@@ -36,16 +36,27 @@ namespace SharpAgenda
 			Telefono = new Entry ();
 			Email = new Entry ();
 
+			Label labelNombreContacto = new Label ("Nombre");
+			labelNombreContacto.SetAlignment (0, 1);
+			Label labelApellidosContacto = new Label ("Apellidos");
+			labelApellidosContacto.SetAlignment (0, 1);
+			Label labelDireccionContacto = new Label ("Dirección");
+			labelDireccionContacto.SetAlignment (0, 1);
+			Label labelTelefonoContacto = new Label ("Teléfono");
+			labelTelefonoContacto.SetAlignment (0, 1);
+			Label labelEmailContacto = new Label ("Email");
+			labelEmailContacto.SetAlignment (0, 1);
+
 			Main.Add (comboBox);
-			Main.Add(new Label("Nombre"));
+			Main.Add(labelNombreContacto);
 			Main.Add (Nombre);
-			Main.Add(new Label("Apellidos"));
+			Main.Add(labelApellidosContacto);
 			Main.Add (Apellidos);
-			Main.Add(new Label("Dirección"));
+			Main.Add(labelDireccionContacto);
 			Main.Add (Direccion);
-			Main.Add(new Label("Telefono"));
+			Main.Add(labelTelefonoContacto);
 			Main.Add (Telefono);
-			Main.Add(new Label("Email"));
+			Main.Add(labelEmailContacto);
 			Main.Add (Email);
 			Main.Add (botonModificar);
 

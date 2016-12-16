@@ -16,7 +16,9 @@ namespace SharpAgenda
 			if (agenda.IsEmpty ()) {
 				Main.Add(new Label("No hay contactos que mostrar"));
 			} else {
-				Main.Add (new Label (agenda.ToString ()));
+				Label label = new Label (agenda.ToString ());
+				label.SetAlignment (0, 1);
+				Main.Add (label);
 			}
 			Add (Main);
 			ShowAll();
