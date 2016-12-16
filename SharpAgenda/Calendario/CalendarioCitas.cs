@@ -75,7 +75,7 @@ namespace Calendario
 			IEnumerable<Cita> citasX =
 				from el in raiz.Elements("cita")
 				where (string)el.Element("fecha") == fecha
-				select new Cita((string)el.Element("nombre"),
+				select new Cita((string)el.Element("nombreCita"),
 								(string)el.Element("nombreContacto"),
 								(string)el.Element("fecha"),
 								(string)el.Element("hora"),
