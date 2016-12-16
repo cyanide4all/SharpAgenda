@@ -41,65 +41,70 @@ namespace SharpAgenda
 			SetPosition(WindowPosition.Center);
 			VBox Main = new VBox ();
 
-			HBox H0 = new HBox ();
-			HBox H00 = new HBox ();
-			HBox H1 = new HBox ();
-			HBox H2 = new HBox ();
-			HBox H3 = new HBox ();
-			HBox H4 = new HBox ();
-			HBox H5 = new HBox ();
+			if (nombresCitas.Length == 0) {
+				textoAMostrar = new Label ("No tiene citas disponibles.");
+				Main.Add (textoAMostrar);
+			} else {
 
-			NombreCita = new Entry ();
-			//NombreContacto = new Entry ();
-			ComboBox cb = new ComboBox(nombresCitas); //Selleccionar Contacto.
-			cb.Changed += OnChanged;
-			cbModifica = new ComboBox(nombresContactos); //Selleccionar Contacto.
-			cbModifica.Changed += OnChanged2;
-			//Entry Fecha = new Entry ();
-			Hora = new Entry ();
-			Descripcion = new Entry ();
+				HBox H0 = new HBox ();
+				HBox H00 = new HBox ();
+				HBox H1 = new HBox ();
+				HBox H2 = new HBox ();
+				HBox H3 = new HBox ();
+				HBox H4 = new HBox ();
+				HBox H5 = new HBox ();
 
-			textoAMostrar = new Label ("...");
-			Label LnombreCita = new Label ("Indentificación de la cita: ");
-			Label LNombreContacto = new Label ("Nombre del contacto: ");
-			Label LFecha = new Label ("Fecha: ");
-			Label LHora = new Label ("Hora: ");
-			Label LDescripcion = new Label ("Descripción: ");
+				NombreCita = new Entry ();
+				//NombreContacto = new Entry ();
+				ComboBox cb = new ComboBox(nombresCitas); //Selleccionar Contacto.
+				cb.Changed += OnChanged;
+				cbModifica = new ComboBox(nombresContactos); //Selleccionar Contacto.
+				cbModifica.Changed += OnChanged2;
+				//Entry Fecha = new Entry ();
+				Hora = new Entry ();
+				Descripcion = new Entry ();
 
-			//Calendario
-			calendar = new Calendar();
-			calendar.DaySelected += OnDaySelected;
+				textoAMostrar = new Label ("...");
+				Label LnombreCita = new Label ("Indentificación de la cita: ");
+				Label LNombreContacto = new Label ("Nombre del contacto: ");
+				Label LFecha = new Label ("Fecha: ");
+				Label LHora = new Label ("Hora: ");
+				Label LDescripcion = new Label ("Descripción: ");
 
-			//Fixed fix = new Fixed();
-			//fix.Put(calendar, 20, 20);
-			//fix.Put(label, 40, 230);
+				//Calendario
+				calendar = new Calendar();
+				calendar.DaySelected += OnDaySelected;
 
-			H0.Add(textoAMostrar);
-			H00.Add(cb);
-			H1.Add(LnombreCita);
-			H1.Add(NombreCita);
-			H2.Add(LNombreContacto);
-			H2.Add(cbModifica);
-			H3.Add(LFecha);
-			H3.Add(calendar);
-			H4.Add(LHora);
-			H4.Add(Hora);
-			H5.Add(LDescripcion);
-			H5.Add(Descripcion);
+				//Fixed fix = new Fixed();
+				//fix.Put(calendar, 20, 20);
+				//fix.Put(label, 40, 230);
 
-			Main.Add (H0);
-			Main.Add (H00);
-			Main.Add (H1);
-			Main.Add (H2);
-			Main.Add (H3);
-			Main.Add (H4);
-			Main.Add (H5);
+				H0.Add(textoAMostrar);
+				H00.Add(cb);
+				H1.Add(LnombreCita);
+				H1.Add(NombreCita);
+				H2.Add(LNombreContacto);
+				H2.Add(cbModifica);
+				H3.Add(LFecha);
+				H3.Add(calendar);
+				H4.Add(LHora);
+				H4.Add(Hora);
+				H5.Add(LDescripcion);
+				H5.Add(Descripcion);
 
-			Button btn = new Button("Guardar");
-			btn.Clicked += Guardar;
+				Main.Add (H0);
+				Main.Add (H00);
+				Main.Add (H1);
+				Main.Add (H2);
+				Main.Add (H3);
+				Main.Add (H4);
+				Main.Add (H5);
 
-			Main.Add (btn);
+				Button btn = new Button("Guardar");
+				btn.Clicked += Guardar;
 
+				Main.Add (btn);
+			}
 			Add(Main);
 			this.ShowAll ();
 		}
