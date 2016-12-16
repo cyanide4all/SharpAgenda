@@ -79,13 +79,18 @@ namespace SharpAgenda
 		void modificarContacto(object sender, EventArgs args){
 			if(toMod == null){
 				alertaNoModificable ();
+			}else{
+				if (Nombre.Text == "") {
+					alertaIntroduzcaAlMenosNombre ();
+				} else {
+					Agenda agenda = Agenda.Get ();
+					int pos = agenda.GetPosicion (toMod);
+					agenda.ModificarContacto (pos, Nombre.Text, Apellidos.Text, Direccion.Text, Email.Text, Telefono.Text);
+					agenda.SaveXML ();
+					alertaOperacionExitosa ();
+					this.Destroy ();
+				}
 			}
-			Agenda agenda = Agenda.Get();
-			int pos = agenda.GetPosicion (toMod);
-			agenda.ModificarContacto (pos, Nombre.Text, Apellidos.Text, Direccion.Text, Email.Text, Telefono.Text);
-			agenda.SaveXML ();
-			alertaOperacionExitosa ();
-			this.Destroy ();
 		}
 
 		//ALERTAS
@@ -103,6 +108,14 @@ namespace SharpAgenda
 				ButtonsType.Ok, "Operación Exitosa");
 			md.Run ();
 			md.Destroy ();
+		}
+
+		private void alertaIntroduzcaAlMenosNombre (){
+			MessageDialog md = new	MessageDialog(this, 
+				DialogFlags.DestroyWithParent, MessageType.Warning, 
+				ButtonsType.Close, "Introduce al menos un nombre para el contacto");
+			md.Run();
+			md.Destroy();
 		}
 	}
 }
