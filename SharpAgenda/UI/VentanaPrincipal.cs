@@ -29,6 +29,7 @@ namespace SharpAgenda
 			MenuItem contactosBorrar = new MenuItem ("Borrar contactos");
 			contactosBorrar.Activated += BorrarContacto;
 			MenuItem contactosModificar = new MenuItem ("Modificar contactos");
+			contactosModificar.Activated += ModificarContacto;
 
 			Menu citasOpciones = new Menu ();
 			MenuItem citasMenu = new MenuItem ("Citas");
@@ -46,9 +47,15 @@ namespace SharpAgenda
 			MenuItem notasBorrar = new MenuItem ("Borrar notas");
 			MenuItem notasModificar = new MenuItem ("Modificar notas");
 
+			Menu calendarioOpciones = new Menu ();
+			MenuItem calendarioMenu = new MenuItem ("Calendario");
+			MenuItem calendarioVer = new MenuItem ("Ver");
+			calendarioVer.Activated += VerCalendario;
+
 			contactosMenu.Submenu = contactosOpciones;
 			citasMenu.Submenu = citasOpciones;
 			notasMenu.Submenu = notasOpciones;
+			calendarioMenu.Submenu = calendarioOpciones;
 
 			contactosOpciones.Append (contactosListar);
 			contactosOpciones.Append (contactosCrear);
@@ -65,10 +72,12 @@ namespace SharpAgenda
 			notasOpciones.Append (notasBorrar);
 			notasOpciones.Append (notasModificar);
 
+			calendarioOpciones.Append (calendarioVer);
+
 			mb.Append (contactosMenu);
 			mb.Append (citasMenu);
 			mb.Append (notasMenu);
-
+			mb.Append (calendarioMenu);
 			//PASTEADO
 			VBox menuBox = new VBox(false, 2);
 			menuBox.PackStart(mb, false, false, 0);
@@ -90,13 +99,19 @@ namespace SharpAgenda
 			new VentanaContactosCrear();
 		}
 		void BorrarContacto(object sender, EventArgs args){
-			new VentanaContactosBorrar();
+			new VentanaContactosBorrarCB();
+		}
+		void ModificarContacto(object sender, EventArgs args){
+			new VentanaContactosModificar();
 		}
 		void ListarCitas(object sender, EventArgs args){
 			new VentanaCitasListar ();
 		}
 		void CrearCitas(object sender, EventArgs args){
 			new VentanaCitasNueva();
+		}
+		void VerCalendario(object sender, EventArgs args){
+			new VentanaGrafico();
 		}
 	}
 }

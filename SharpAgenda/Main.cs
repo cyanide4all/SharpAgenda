@@ -16,8 +16,7 @@ namespace Grafico
 			hue.SaveXML ();
 			*///END Test de contactos
 
-
-
+			//ACTUAL FUNKING APLICATION
 			Application.Init ();
 			new VentanaPrincipal ();
 			Application.Run ();

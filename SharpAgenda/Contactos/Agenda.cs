@@ -50,10 +50,9 @@ namespace Contactos
 			return contactos.Remove (c); //Puesto como return for debugging purposes
 		}
 
-		public Contacto GetPosicion(Contacto c){
-			//TODO FIX THIS
-			//return contactos.IndexOf (c);
-			return null;
+		public int GetPosicion(Contacto c){
+			return contactos.IndexOf (c);
+			//return null;
 		}
 
 		public Contacto GetContactoByIndex(int i){

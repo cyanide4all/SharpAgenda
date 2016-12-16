@@ -1,4 +1,6 @@
-﻿using System;
+﻿//DEPRECATED PORQUE SE ME OCURRIÓ ALGO MEJOR
+
+using System;
 using Gtk;
 using Contactos;
 
