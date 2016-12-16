@@ -18,6 +18,7 @@ namespace SharpAgenda
 		{
 			BorderWidth = 10;
 			SetDefaultSize(250, 200);
+			SetPosition(WindowPosition.Center);
 			VBox Main = new VBox ();
 
 			nombreContacto = new Entry ();
@@ -28,15 +29,10 @@ namespace SharpAgenda
 
 			//Si tal, ya si eso, gravedad izquierda en las labels porque estan al medio
 			Label labelNombreContacto = new Label ("Nombre");
-			labelNombreContacto.SetAlignment (0, 1);
 			Label labelApellidosContacto = new Label ("Apellidos");
-			labelApellidosContacto.SetAlignment (0, 1);
 			Label labelDireccionContacto = new Label ("Dirección");
-			labelDireccionContacto.SetAlignment (0, 1);
 			Label labelTelefonoContacto = new Label ("Teléfono");
-			labelTelefonoContacto.SetAlignment (0, 1);
-			Label labelEmailContacto = new Label ("Email");
-			labelEmailContacto.SetAlignment (0, 1);
+			Label LabelEmailContacto = new Label ("Email");
 
 			Button guardar = new Button ("Guardar");
 			guardar.Clicked += crearContacto;
@@ -49,7 +45,7 @@ namespace SharpAgenda
 			Main.Add (direccionContacto);
 			Main.Add (labelTelefonoContacto);
 			Main.Add (telefonoContacto);
-			Main.Add (labelEmailContacto);
+			Main.Add (LabelEmailContacto);
 			Main.Add (emailContacto);
 			Main.Add (guardar);
 

@@ -38,7 +38,9 @@ namespace SharpAgenda
 			MenuItem citasCrear = new MenuItem ("Crear citas");
 			citasCrear.Activated += CrearCitas;
 			MenuItem citasBorrar = new MenuItem ("Borrar citas");
+			citasBorrar.Activated += BorrarCitas;
 			MenuItem citasModificar = new MenuItem ("Modificar citas");
+			citasModificar.Activated += ModificarCitas;
 
 			Menu notasOpciones = new Menu ();
 			MenuItem notasMenu = new MenuItem ("Notas");
@@ -109,6 +111,12 @@ namespace SharpAgenda
 		}
 		void CrearCitas(object sender, EventArgs args){
 			new VentanaCitasNueva();
+		}
+		void BorrarCitas(object sender, EventArgs args){
+			new VentanaCitasBorrar();
+		}
+		void ModificarCitas(object sender, EventArgs args){
+			new VentanaCitasModificar();
 		}
 		void VerCalendario(object sender, EventArgs args){
 			new VentanaGrafico();
