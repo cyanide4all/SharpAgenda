@@ -1,5 +1,6 @@
 ﻿using System;
 using Gtk;
+using SharpAgenda;
 
 namespace Grafico
 {
@@ -15,10 +16,9 @@ namespace Grafico
 			hue.SaveXML ();
 			*///END Test de contactos
 
-
-
+			//ACTUAL FUNKING APLICATION
 			Application.Init ();
-			new VentanaGrafico ();
+			new VentanaPrincipal ();
 			Application.Run ();
 		}
 

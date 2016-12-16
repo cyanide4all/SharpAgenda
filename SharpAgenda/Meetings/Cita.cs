@@ -2,7 +2,7 @@
 
 namespace Meetings
 {
-	public class Cita
+	public class Cita : IEquatable<Cita>
 	{
 		public Cita (string nombre, string nomContacto, string fecha, string hora, string des)
 		{
@@ -36,6 +36,19 @@ namespace Meetings
 		public string Descripcion 
 		{
 			get; private set;
+		}
+
+		public bool Equals(Cita otro)
+		{
+			if (otro == null) return false;
+			return (this.Nombre.Equals(otro.Nombre) && this.NombreContacto.Equals(otro.NombreContacto) &&
+				this.Fecha.Equals(otro.Fecha) && this.Hora.Equals(otro.Hora)&&
+				this.Descripcion.Equals(otro.Descripcion));
+		}
+
+		public override string ToString ()
+		{
+			return string.Format ("Cita:\nNombre={0}\nNombreContacto={1}\nFecha={2}\nHora={3}\nDescripcion={4}",  Nombre, NombreContacto, Fecha, Hora, Descripcion );
 		}
 
 		public string ToString (int actual)
