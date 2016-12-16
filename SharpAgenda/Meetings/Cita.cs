@@ -48,12 +48,12 @@ namespace Meetings
 
 		public override string ToString ()
 		{
-			return string.Format ("Cita:\nNombre={0}\nNombreContacto={1}\nFecha={2}\nHora={3}\nDescripcion={4}",  Nombre, NombreContacto, Fecha, Hora, Descripcion );
+			return string.Format ("Cita:\nNombre: {0}\nNombreContacto: {1}\nFecha: {2}\nHora: {3}\nDescripcion: {4}",  Nombre, NombreContacto, Fecha, Hora, Descripcion );
 		}
 
 		public string ToString (int actual)
 		{
-			return string.Format ("Cita#{0}:\nNombre={1}\nNombreContacto={2}\nFecha={3}\nHora={4}\nDescripcion={5}", actual, Nombre, NombreContacto, Fecha, Hora, Descripcion );
+			return string.Format ("Cita#{0}:\nNombre: {1}\nNombreContacto: {2}\nFecha: {3}\nHora: {4}\nDescripcion: {5}", actual, Nombre, NombreContacto, Fecha, Hora, Descripcion );
 		}
 	}
 }
