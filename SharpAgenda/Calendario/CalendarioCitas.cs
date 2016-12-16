@@ -9,55 +9,67 @@ namespace Calendario
 {
 	public class CalendarioCitas
 	{
-		public static int[] diasMes = new int[] {31,28,31,30,31,30,31,31,30,31,30,31};
-
-		//Variable que guardará la primera lista de citas.
+		public int[] diasMes = new int[] { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 		public List<List<Cita>> calendarioCitaBase;
+		public DateTime primerDiaSemana;
+		public DateTime diaDeHoy;
 
 		public CalendarioCitas()
 		{
-			//Obtenemos la fecha actual para saber que lista de citas lanzar
-			//int diaActual = DateTime.Today.Day;
-			int mesActual = DateTime.Today.Month;
-			int anoActual = DateTime.Today.Year;
+			diaDeHoy = DateTime.Today;
+			primerDiaSemana = diaDeHoy.AddDays(DayOfWeek.Monday - diaDeHoy.DayOfWeek);
 
-			crearCal(anoActual, mesActual);
+			calendarioCitaBase = crearSemanaCalendario();
 		}
 
-		public CalendarioCitas(int ano, int mes)
+
+		//Crea una lista de listas de citas para una semana
+		public List<List<Cita>> crearSemanaCalendario()
 		{
-			crearCal(ano, mes);	
-		}
-
-
-		public void crearCal(int ano, int mes)
-		{ 
-			calendarioCitaBase = crearCalendario(ano, mes);
-		}
-
-		//Crea una lista de listas de citas para un mes en concreto
-		public static List<List<Cita>> crearCalendario(int ano, int mes)
-		{ 
 			List<List<Cita>> calendario = new List<List<Cita>>();
+			int diaActual = primerDiaSemana.Day;
+			int mesActual = primerDiaSemana.Month;
+			int anoActual = primerDiaSemana.Year;
 
-			for (int i = 1; i <= diasMes[mes]; i++)
+			for (int i = 1; i <= 7; i++)
 			{
-				string date = i + "/" + mes + "/" + ano;
+				string date = diaActual + "/" + mesActual + "/" + anoActual;
 
-				calendario.Add(citasDia(mes,i,ano));
+				Console.WriteLine("Date: {0}", date);
+
+				calendario.Add(citasDia(mesActual, diaActual, anoActual));
+
+				if (diaActual == diasMes[mesActual - 1])
+				{
+					diaActual = 1;
+
+					if (mesActual == 12)
+					{
+						mesActual = 1;
+						anoActual++;
+					}
+				}
+				else
+				{
+					diaActual++;
+				}
 			}
-
 
 			return calendario;
 		}
 
+		public DateTime getPrimerDia()
+		{
+			return primerDiaSemana;
+		}
+
 		//Devuelve una lista con las citas de la fecha pasada como argumento
-		public static List<Cita> citasDia(int mes, int dia, int ano)
+		public List<Cita> citasDia(int mes, int dia, int ano)
 		{
 			List<Cita> citas = new List<Cita>();
 			string fecha = dia + "/" + mes + "/" + ano;
 
-			//System.Console.WriteLine("{0}",fecha);
+			//System.Console.WriteLine("{0}",fecha);vb 
 
 			XElement raiz = XElement.Load("citas.xml");
 			IEnumerable<Cita> citasX =
@@ -66,8 +78,8 @@ namespace Calendario
 				select new Cita((string)el.Element("nombre"),
 								(string)el.Element("nombreContacto"),
 								(string)el.Element("fecha"),
-				                (string)el.Element("hora"),
-				                (string)el.Element("descripcion"));
+								(string)el.Element("hora"),
+								(string)el.Element("descripcion"));
 
 			foreach (Cita cita in citasX)
 			{
@@ -75,29 +87,6 @@ namespace Calendario
 			}
 
 			return citas;
-		}
-
-		//Ejemplo de salida del mes
-		public override string ToString()
-		{
-
-			int i = 1;
-
-			//Prueba de que la lista de citas funciona correctamente
-			calendarioCitaBase.ForEach(delegate (List<Cita> c)
-	  		{
-
-				  //Codigo ejemplo muestra fecha actual
-				Console.WriteLine("Dia: {0}", i++);
-				  c.ForEach(delegate (Cita cita)
-	  			  {
-
-				  Console.WriteLine(cita);
-
-			      });
-			 });
-
-			return string.Format("[CalendarioCitas]");
 		}
 	}
 }
