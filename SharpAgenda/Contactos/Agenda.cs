@@ -51,7 +51,8 @@ namespace Contactos
 		}
 
 		public Contacto GetPosicion(Contacto c){
-			return contactos.IndexOf (c);
+			//return contactos.IndexOf (c);
+			return null;
 		}
 
 		public Contacto GetContactoByIndex(int i){
