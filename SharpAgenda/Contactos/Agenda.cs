@@ -51,6 +51,7 @@ namespace Contactos
 		}
 
 		public Contacto GetPosicion(Contacto c){
+			//TODO FIX THIS
 			//return contactos.IndexOf (c);
 			return null;
 		}
@@ -183,6 +184,15 @@ namespace Contactos
 			return toret.ToString();
 		}
 
+		//VERSION DE TOSTRING PARA COMBOBOX
+		public String[] ToStringCB(){
+			var toret = new String[this.contactos.Capacity];
+			int it = 0;
+			foreach(var entry in this.contactos) {
+				toret[it++] = (entry.Nombre.ToString()+","+entry.Apellidos.ToString());
+			}
+			return toret;
+		}
 	}
 }
 
