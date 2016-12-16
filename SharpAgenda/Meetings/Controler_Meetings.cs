@@ -17,20 +17,30 @@ namespace Meetings
 			this.listaCitas.AddMeet (nueva);
 		}
 
-		public void ToModifyMeet(string nom, string nombre, string nomCita, string fecha, string hora, string des)
+		public void ToModifyMeet(string nom, string nombreCita, string nomContacto, string fecha, string hora, string des)
 		{
-			Cita nueva = new Cita (nombre, nomCita, fecha, hora, des);
+			Cita nueva = new Cita (nombreCita, nomContacto, fecha, hora, des);
 			this.listaCitas.ModifyMeet (nom, nueva);
 		}
 
-		public void ToDeleteMeet(string nom)
+		public Boolean ToDeleteMeet(string nom)
 		{
-			this.listaCitas.RemoveMeet (nom);
+			return this.listaCitas.RemoveMeet (nom);
+		}
+
+		public String[] GetAll()
+		{
+			return this.listaCitas.GetAll ();
+		}
+
+		public Cita ToGetMeetByName(string nom)
+		{
+			return this.listaCitas.GetByName(nom);
 		}
 
 		public string ToViewMeetByName(string nom)
 		{
-			return this.listaCitas.GetByName(nom).ToString () + "\n";
+			return (this.listaCitas.GetByName(nom).ToString () + "\n");
 		}
 
 		public string ToViewMeetByContact(string nom)
