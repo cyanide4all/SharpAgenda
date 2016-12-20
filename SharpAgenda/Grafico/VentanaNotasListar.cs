@@ -20,7 +20,8 @@ namespace SharpAgenda
 			VBox main = new VBox ();
 		
 			foreach (Nota n in listaNotas) {
-				main.Add (new Label(n.ToString()));
+				Label nota = new Label(n.ToString());
+				main.Add (nota);
 			}
 
 			Add (main);
