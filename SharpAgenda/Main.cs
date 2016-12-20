@@ -2,6 +2,12 @@
 using Gtk;
 using SharpAgenda;
 
+using System.Collections.Generic;
+using Notas;
+using Contactos;
+using System.Xml;
+using System.Text;
+
 namespace Grafico
 {
 	public class MainClass

@@ -45,7 +45,9 @@ namespace SharpAgenda
 			Menu notasOpciones = new Menu ();
 			MenuItem notasMenu = new MenuItem ("Notas");
 			MenuItem notasListar = new MenuItem ("Listar notas");
+			notasListar.Activated += ListarNotas;
 			MenuItem notasCrear = new MenuItem ("Crear notas");
+			notasCrear.Activated += CrearNotas;
 			MenuItem notasBorrar = new MenuItem ("Borrar notas");
 			MenuItem notasModificar = new MenuItem ("Modificar notas");
 
@@ -120,6 +122,13 @@ namespace SharpAgenda
 		}
 		void VerCalendario(object sender, EventArgs args){
 			new VentanaGrafico();
+		}
+
+		void ListarNotas(object sender, EventArgs args) {
+			new VentanaNotasListar();
+		}
+		void CrearNotas(object sender, EventArgs args) {
+			new VentanaNotasCrear();
 		}
 	}
 }
