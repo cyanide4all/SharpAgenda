@@ -58,6 +58,9 @@
     <Compile Include="Grafico\VentanaContactosCrear.cs" />
     <Compile Include="Grafico\VentanaContactosListar.cs" />
     <Compile Include="Grafico\VentanaContactosModificar.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="Grafico\VentanaNotasListar.cs" />
+    <Compile Include="Grafico\VentanaNotasCrear.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
@@ -82,5 +85,11 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.CSharp" />
+    <Reference Include="Mono.Posix" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

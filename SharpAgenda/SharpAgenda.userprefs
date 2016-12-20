@@ -1,14 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="UI/VentanaPrincipal.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Grafico/VentanaNotasListar.cs">
     <Files>
       <File FileName="Main.cs" Line="27" Column="1" />
-      <File FileName="UI/VentanaPrincipal.cs" Line="98" Column="29" />
+      <File FileName="UI/VentanaPrincipal.cs" Line="126" Column="29" />
+      <File FileName="Grafico/VentanaNotasListar.cs" Line="6" Column="22" />
+      <File FileName="Grafico/VentanaCitasListar.cs" Line="1" Column="1" />
+      <File FileName="Notas/Nota.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="SharpAgenda" expanded="True" selected="True">
+          <Node name="SharpAgenda" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="UserInterface" expanded="True" selected="True" />
+            <Node name="Calendario" expanded="True" />
+            <Node name="Contactos" expanded="True" />
+            <Node name="Grafico" expanded="True" />
+            <Node name="Meetings" expanded="True" />
+            <Node name="Notas" expanded="True" />
             <Node name="UI" expanded="True" />
           </Node>
         </State>
