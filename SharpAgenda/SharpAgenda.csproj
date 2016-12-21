@@ -61,6 +61,7 @@
     <Compile Include="gtk-gui\generated.cs" />
     <Compile Include="Grafico\VentanaNotasListar.cs" />
     <Compile Include="Grafico\VentanaNotasCrear.cs" />
+    <Compile Include="Grafico\VentanaNotasModificar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />

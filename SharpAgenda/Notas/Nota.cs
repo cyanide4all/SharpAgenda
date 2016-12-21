@@ -85,7 +85,7 @@ namespace Notas
 			wr.Close ();
 		}
 
-		public void SaveXML(XmlTextWriter wr) {
+		private void SaveXML(XmlTextWriter wr) {
 			wr.WriteStartElement("nota");
 			wr.WriteStartElement ("contacto");
 			wr.WriteString (contacto.Email);
