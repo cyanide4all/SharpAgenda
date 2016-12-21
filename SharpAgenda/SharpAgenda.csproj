@@ -62,6 +62,7 @@
     <Compile Include="Grafico\VentanaNotasListar.cs" />
     <Compile Include="Grafico\VentanaNotasCrear.cs" />
     <Compile Include="Grafico\VentanaNotasModificar.cs" />
+    <Compile Include="Grafico\VentanaNotasBorrar.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
