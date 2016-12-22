@@ -19,7 +19,7 @@ namespace Calendario
 			diaDeHoy = DateTime.Today;
 			primerDiaSemana = diaDeHoy.AddDays(DayOfWeek.Monday - diaDeHoy.DayOfWeek);
 
-			calendarioCitaBase = crearSemanaCalendario();
+			//calendarioCitaBase = crearSemanaCalendario();
 		}
 
 
@@ -70,21 +70,29 @@ namespace Calendario
 			string fecha = dia + "/" + mes + "/" + ano;
 
 			//System.Console.WriteLine("{0}",fecha);vb 
-
-			XElement raiz = XElement.Load("citas.xml");
-			IEnumerable<Cita> citasX =
-				from el in raiz.Elements("cita")
-				where (string)el.Element("fecha") == fecha
-				select new Cita((string)el.Element("nombreCita"),
-								(string)el.Element("nombreContacto"),
-								(string)el.Element("fecha"),
-								(string)el.Element("hora"),
-								(string)el.Element("descripcion"));
-
-			foreach (Cita cita in citasX)
+			try
 			{
-				citas.Add(cita);
+				XElement raiz = XElement.Load("citas.xml");
+
+				IEnumerable<Cita> citasX =
+					from el in raiz.Elements("cita")
+					where (string)el.Element("fecha") == fecha
+					select new Cita((string)el.Element("nombreCita"),
+									(string)el.Element("nombreContacto"),
+									(string)el.Element("fecha"),
+									(string)el.Element("hora"),
+									(string)el.Element("descripcion"));
+
+				foreach (Cita cita in citasX)
+				{
+					citas.Add(cita);
+				}
 			}
+			catch (Exception)
+			{
+				Console.WriteLine("Exception");
+			}
+
 
 			return citas;
 		}
