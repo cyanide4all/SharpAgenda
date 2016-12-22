@@ -7,7 +7,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>SharpAgenda</RootNamespace>
     <AssemblyName>SharpAgenda</AssemblyName>
-    <ProductVersion>10.0.0</ProductVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -22,7 +23,7 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>none</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -62,13 +63,15 @@
     <Compile Include="Grafico\VentanaNotasCrear.cs" />
     <Compile Include="Grafico\VentanaNotasListar.cs" />
     <Compile Include="Grafico\VentanaNotasModificar.cs" />
-=======
-    <Compile Include="gtk-gui\generated.cs" />
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa5151e3758ab213d54b9d64aaef4befa5fbe9c9
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="MonoDevelop.Xml, Version=2.6.0.0, Culture=neutral">
+      <Package>monodevelop-core-addins</Package>
+    </Reference>
+    <Reference Include="System.Xml.Serialization" />
+    <Reference Include="Commons.Xml.Relaxng" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
       <Package>gtk-sharp-2.0</Package>
@@ -89,11 +92,5 @@
       <Package>gtk-sharp-2.0</Package>
     </Reference>
     <Reference Include="Mono.CSharp" />
-    <Reference Include="Mono.Posix" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="gtk-gui\gui.stetic">
-      <LogicalName>gui.stetic</LogicalName>
-    </EmbeddedResource>
   </ItemGroup>
 </Project>
