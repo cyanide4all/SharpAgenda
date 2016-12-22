@@ -33,21 +33,19 @@ namespace Grafico
 
 			//Crea los dias
 			for (int i = 0; i < 7; i++) {
-				Label h = new Label(Days[i]);
+				Label h = new Label(Days[i]+"  "+primerDia.ToString() );
 				h.SetAlignment(0,0);
 				Dias [i] = new VBox ();
 				Dias [i].Add (h);
 				DayContainer.Add (Dias [i]);
+				primerDia++;
 			}
 
 			cont = 0;
 			calendarioSemana.ForEach(delegate (List<Cita> c)
-	  		{				Label Dia = new Label(primerDia.ToString());
+	  		{
 				Label Citas;
-				Dia.SetAlignment(1, 0);
-				primerDia++;
 
-				Dias[cont].Add(Dia);
 				cont++;
 				c.ForEach(delegate (Cita cita)
 				{
