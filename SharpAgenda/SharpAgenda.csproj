@@ -49,7 +49,6 @@
     <Compile Include="Calendario\CalendarioCitas.cs" />
     <Compile Include="UI\VentanaPrincipal.cs" />
     <Compile Include="Notas\Nota.cs" />
-<<<<<<< HEAD
     <Compile Include="Grafico\VentanaContactosListar.cs" />
     <Compile Include="Grafico\VentanaContactosCrear.cs" />
     <Compile Include="Grafico\VentanaContactosBorrar.cs" />
@@ -64,21 +63,8 @@
     <Compile Include="Grafico\VentanaNotasListar.cs" />
     <Compile Include="Grafico\VentanaNotasModificar.cs" />
 =======
-    <Compile Include="Grafico\VentanaCitasBorrar.cs" />
-    <Compile Include="Grafico\VentanaCitasListar.cs" />
-    <Compile Include="Grafico\VentanaCitasModificar.cs" />
-    <Compile Include="Grafico\VentanaCitasNueva.cs" />
-    <Compile Include="Grafico\VentanaContactosBorrar.cs" />
-    <Compile Include="Grafico\VentanaContactosBorrarCB.cs" />
-    <Compile Include="Grafico\VentanaContactosCrear.cs" />
-    <Compile Include="Grafico\VentanaContactosListar.cs" />
-    <Compile Include="Grafico\VentanaContactosModificar.cs" />
     <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="Grafico\VentanaNotasListar.cs" />
-    <Compile Include="Grafico\VentanaNotasCrear.cs" />
-    <Compile Include="Grafico\VentanaNotasModificar.cs" />
-    <Compile Include="Grafico\VentanaNotasBorrar.cs" />
->>>>>>> aa5151e3758ab213d54b9d64aaef4befa5fbe9c9
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; aa5151e3758ab213d54b9d64aaef4befa5fbe9c9
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Xml" />
