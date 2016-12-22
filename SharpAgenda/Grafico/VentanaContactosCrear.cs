@@ -58,8 +58,8 @@ namespace SharpAgenda
 			if (nombreContacto.Text != "") {
 				//Crear el contacto
 				Contacto nuevo = new Contacto (nombreContacto.Text, apellidosContacto.Text, 
-					                  direccionContacto.Text, emailContacto.Text, 
-					                  telefonoContacto.Text);
+					                  direccionContacto.Text, 
+					telefonoContacto.Text, emailContacto.Text);
 				Agenda agenda = Agenda.Get ();
 				agenda.AddContacto (nuevo);
 				agenda.SaveXML ();
