@@ -4,3 +4,8 @@
 /home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe
 /home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe.mdb
 /home/cya/gitclones/SharpAgenda/SharpAgenda/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/alumno/SharpAgenda/SharpAgenda/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alumno/SharpAgenda/SharpAgenda/bin/Debug/SharpAgenda.exe.mdb
+/home/alumno/SharpAgenda/SharpAgenda/bin/Debug/SharpAgenda.exe
+/home/alumno/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe
+/home/alumno/SharpAgenda/SharpAgenda/obj/x86/Debug/SharpAgenda.exe.mdb
